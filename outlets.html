@@ -42,6 +42,12 @@
         document.getElementById("On3").addEventListener("click", On3);
         document.getElementById("On4").addEventListener("click", On4);
         document.getElementById("On5").addEventListener("click", On5);
+        
+        document.getElementById("Off1").addEventListener("click", Off1);
+        document.getElementById("Off2").addEventListener("click", Off2);
+        document.getElementById("Off3").addEventListener("click", Off3);
+        document.getElementById("Off4").addEventListener("click", Off4);
+        document.getElementById("Off5").addEventListener("click", Off5);
     }
     function On1(){
         SendSignal(1, true)
@@ -57,6 +63,22 @@
     }
     function On5(){
         SendSignal(5, true)
+    }
+    
+    function Off1(){
+        SendSignal(1, false)
+    }
+    function Off2(){
+        SendSignal(2, false)
+    }
+    function Off3(){
+        SendSignal(3, false)
+    }
+    function Off4(){
+        SendSignal(4, false)
+    }
+    function Off5(){
+        SendSignal(5, false)
     }
     
 /*
