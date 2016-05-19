@@ -45,7 +45,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 
 func outletHandler(w http.ResponseWriter, r *http.Request) {
 	signal := strings.SplitAfter(fmt.Sprint(r.URL), "=")
-	isON := signal[2].(bool)
+	isON := signal[2]
 	signalSplit := strings.Split(signal[1], "&")
 	outletNum := signalSplit[0]
 	fmt.Println(signal)
@@ -53,7 +53,7 @@ func outletHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(signalSplit)
 	fmt.Println(outletNum)
 	var o string
-	if isON != true {
+	if isON != "true" {
 		o = "off"
 	} else {
 		o = "on"
