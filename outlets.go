@@ -45,7 +45,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 
 func outletHandler(w http.ResponseWriter, r *http.Request) {
 	signal := strings.SplitAfter(fmt.Sprint(r.URL), "=")
-	isON := signal[2]
+	isON := signal[2].(bool)
 	signalSplit := strings.Split(signal[1], "&")
 	outletNum := signalSplit[0]
 	fmt.Println(signal)
