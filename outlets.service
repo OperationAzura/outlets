@@ -4,7 +4,9 @@ Requires=network-online.target
 After=network.target network-online.target multi-user.target
 
 [Service]
-ExecStart=/home/pi/outlets/start.sh
+WorkingDirectory=/home/pi/outlets
+ExecStartPre=/home/pi/outlets/start.sh
+ExecStart=/home/pi/outlets/outlets
 Restart=always
 
 [Install]
