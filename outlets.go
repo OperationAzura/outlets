@@ -58,7 +58,7 @@ func outletHandler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		o = "on"
 	}
-	s := fmt.Sprint(o + outletNum + "outlet")
+	s := fmt.Sprint( `outlet` + outletNum + o)
 	cmd := exec.Command(s)
 	err := cmd.Start()
 	if err != nil {
