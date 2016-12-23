@@ -66,6 +66,7 @@ func outletHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// Serve asdf
 func Serve() {
 	http.HandleFunc("/", makeHandler(viewHandler))
 	http.HandleFunc("/outlet", makeHandler(outletHandler))
