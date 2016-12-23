@@ -58,7 +58,7 @@ func outletHandler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		o = "on"
 	}
-	s := fmt.Sprint( `outlet` + outletNum + o)
+	s := fmt.Sprint(`outlet` + outletNum + o)
 	cmd := exec.Command(s)
 	err := cmd.Start()
 	if err != nil {
@@ -69,6 +69,15 @@ func outletHandler(w http.ResponseWriter, r *http.Request) {
 func Serve() {
 	http.HandleFunc("/", makeHandler(viewHandler))
 	http.HandleFunc("/outlet", makeHandler(outletHandler))
+
+	go func() {
+		server := http.FileServer(http.Dir("./"))
+		http.Handle("/", server)
+
+		log.Println("Listening...")
+		http.ListenAndServe(":8181", nil)
+	}()
+
 	/*
 		http.HandleFunc("/edit/", makeHandler(editHandler))
 		http.HandleFunc("/save/", makeHandler(saveHandler))
