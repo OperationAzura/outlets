@@ -68,8 +68,9 @@ func outletHandler(w http.ResponseWriter, r *http.Request) {
 
 // Serve asdf
 func Serve() {
-	server := http.FileServer(http.Dir("./"))
-	http.Handle("/", server) //makeHandler(viewHandler)
+	server := http.FileServer(http.Dir("./static"))
+	http.Handle("/", server)
+	http.HandleFunc("/", makeHandler(viewHandler)) //makeHandler(viewHandler)
 	http.HandleFunc("/outlet", makeHandler(outletHandler))
 	/*
 		go func() {
