@@ -24,6 +24,11 @@
     }
     
     window.onload = function () {
+        //for wakeUp
+        //TODO change the way this signal is sent
+        document.getElementById("wakeUp").addEventListener("click", On6); 
+       
+        
         document.getElementById("On1").addEventListener("click", On1);
         document.getElementById("On2").addEventListener("click", On2);
         document.getElementById("On3").addEventListener("click", On3);
@@ -50,6 +55,10 @@
     }
     function On5(){
         SendSignal(5, true)
+    }
+    //this one is for wakeUp
+    function On6(){
+        SendSignal(6, true)
     }
     
     function Off1(){
@@ -87,6 +96,9 @@ function onOutlet(outletNum int){
 </script>
 </head>
 <body>
+    <div>
+        <div id="wake" class="OnButton"><center>Higernate</center><br><center>Server</center></div>
+    </div>
     <div id="On1" class="OnButton"><center>outlet 1<br> on</center></div>
     <div id="On2" class="OnButton"><center>outlet 2<br> on</center></div>
     <div id="On3" class="OnButton"><center>outlet 3<br> on</center></div>
