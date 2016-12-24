@@ -15,6 +15,15 @@
 
 <script>
     function SendSignal(outletNum, onOff){
+    //for wakeUp
+    if outletNum == 6{
+        $.get( "192.168.1.5:8888/outlet", { outlet: outletNum, position: onOff } )
+          .done(function( data ) {
+            console.log(".done starting")
+            var jsonmsg = $.parseJSON(data);
+    });
+    }
+    }   else {
         
     $.get( "/outlet", { outlet: outletNum, position: onOff } )
           .done(function( data ) {
@@ -22,7 +31,7 @@
             var jsonmsg = $.parseJSON(data);
     });
     }
-    
+    }
     window.onload = function () {
         //for wakeUp
         //TODO change the way this signal is sent
